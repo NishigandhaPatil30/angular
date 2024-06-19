@@ -1,0 +1,29 @@
+
+<h1 style="text-align: center;">Update User</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+  <input type="hidden" formControlName="id"> 
+  
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="userForm.get('name')?.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error *ngIf="userForm.get('email')?.hasError('required')">Email is required</mat-error>
+    <mat-error *ngIf="userForm.get('email')?.hasError('email')">Invalid email address</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="admin">Admin</mat-option>
+      <mat-option value="user">User</mat-option>
+    </mat-select>
+    <mat-error *ngIf="userForm.get('role')?.hasError('required')">Role is required</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Update User</button>
+</form>

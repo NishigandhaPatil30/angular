@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table {
+    width: 100%;
+  }
+  .user-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px; /* Adjust max-width as per your design */
+  margin: auto; /* Center the form horizontally */
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 15px; /* Adjust spacing between fields */
+}
+
+@media (min-width: 768px) {
+  .user-form {
+    max-width: 600px; /* Increase max-width for larger screens if needed */
+  }
+}
